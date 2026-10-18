@@ -34,3 +34,4 @@ res.send([
 });
 app.listen(PORT, () => console.log(`ShipFast app v${VERSION} running on port
 ${PORT}`));
+console.log("Docker cache experiment");
