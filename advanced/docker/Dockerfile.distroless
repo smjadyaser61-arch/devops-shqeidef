@@ -1,0 +1,27 @@
+# Stage 1: Builder
+FROM node:24.9.0-alpine3.22 AS builder
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY package*.json ./
+
+RUN npm ci --omit=dev && npm cache clean --force
+
+COPY . .
+
+# Stage 2: Distroless runtime
+FROM gcr.io/distroless/nodejs24-debian12
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+COPY --from=builder --chown=65532:65532 /app /app
+
+USER 65532:65532
+
+EXPOSE 3000
+
+CMD ["index.js"]
