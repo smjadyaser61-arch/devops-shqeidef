@@ -5,7 +5,6 @@ npm-debug.log*
 .terraform/
 *.tfstate*
 cosign.key
-cosign.key
 
 # Terraform
 **/.terraform/
@@ -20,3 +19,8 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# Terragrunt
+**/.terragrunt-cache/
+advanced/terraform/environments/**/backend.tf
+advanced/terraform/environments/**/provider.tf

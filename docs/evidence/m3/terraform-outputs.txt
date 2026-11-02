@@ -1,0 +1,2 @@
+bucket_arn = "arn:aws:s3:::shipfast-artifacts-dev-563807597492"
+bucket_name = "shipfast-artifacts-dev-563807597492"

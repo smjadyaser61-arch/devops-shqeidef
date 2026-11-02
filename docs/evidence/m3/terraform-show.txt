@@ -1,0 +1,93 @@
+# data.aws_caller_identity.current:
+data "aws_caller_identity" "current" {
+    account_id = "563807597492"
+    arn        = "arn:aws:iam::563807597492:user/iamadmin"
+    id         = "563807597492"
+    user_id    = "AIDAYGRMNGO2HLGJYHE5I"
+}
+
+# aws_s3_bucket.artifacts:
+resource "aws_s3_bucket" "artifacts" {
+    acceleration_status         = null
+    arn                         = "arn:aws:s3:::shipfast-artifacts-dev-563807597492"
+    bucket                      = "shipfast-artifacts-dev-563807597492"
+    bucket_domain_name          = "shipfast-artifacts-dev-563807597492.s3.amazonaws.com"
+    bucket_prefix               = null
+    bucket_regional_domain_name = "shipfast-artifacts-dev-563807597492.s3.us-east-1.amazonaws.com"
+    force_destroy               = false
+    hosted_zone_id              = "Z3AQBSTGFYJSTF"
+    id                          = "shipfast-artifacts-dev-563807597492"
+    object_lock_enabled         = false
+    policy                      = null
+    region                      = "us-east-1"
+    request_payer               = "BucketOwner"
+    tags                        = {
+        "Environment" = "dev"
+        "ManagedBy"   = "terraform"
+        "Project"     = "shipfast-devops"
+    }
+    tags_all                    = {
+        "Environment" = "dev"
+        "ManagedBy"   = "terraform"
+        "Project"     = "shipfast-devops"
+    }
+
+    grant {
+        id          = "d0b6d2df115737daa07448c7dee6d262b2226e8920818c26bfa5f04f4aeb4153"
+        permissions = [
+            "FULL_CONTROL",
+        ]
+        type        = "CanonicalUser"
+        uri         = null
+    }
+
+    server_side_encryption_configuration {
+        rule {
+            bucket_key_enabled = false
+
+            apply_server_side_encryption_by_default {
+                kms_master_key_id = null
+                sse_algorithm     = "AES256"
+            }
+        }
+    }
+
+    versioning {
+        enabled    = true
+        mfa_delete = false
+    }
+}
+
+# aws_s3_bucket_server_side_encryption_configuration.artifacts:
+resource "aws_s3_bucket_server_side_encryption_configuration" "artifacts" {
+    bucket                = "shipfast-artifacts-dev-563807597492"
+    expected_bucket_owner = null
+    id                    = "shipfast-artifacts-dev-563807597492"
+
+    rule {
+        bucket_key_enabled = false
+
+        apply_server_side_encryption_by_default {
+            kms_master_key_id = null
+            sse_algorithm     = "AES256"
+        }
+    }
+}
+
+# aws_s3_bucket_versioning.artifacts:
+resource "aws_s3_bucket_versioning" "artifacts" {
+    bucket                = "shipfast-artifacts-dev-563807597492"
+    expected_bucket_owner = null
+    id                    = "shipfast-artifacts-dev-563807597492"
+
+    versioning_configuration {
+        mfa_delete = null
+        status     = "Enabled"
+    }
+}
+
+
+Outputs:
+
+bucket_arn = "arn:aws:s3:::shipfast-artifacts-dev-563807597492"
+bucket_name = "shipfast-artifacts-dev-563807597492"
