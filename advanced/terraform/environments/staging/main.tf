@@ -17,7 +17,7 @@ module "artifacts" {
   bucket_name = "shipfast-artifacts-staging-${data.aws_caller_identity.current.account_id}"
   environment = "staging"
   cost_center = "shipfast-staging"
-  owner       = "devops-team"
+  owner       = "staging-team"
 }
 
 output "bucket_name" {
