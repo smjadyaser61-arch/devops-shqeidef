@@ -35,4 +35,7 @@ jobs:
 
       - name: Run tests
         working-directory: ./app
-        run: npm test
+        run: |
+          npm test
+          echo "Intentional reusable workflow failure"
+          exit 1
