@@ -6,7 +6,7 @@
 "scripts": {
 "start": "node index.js",
 "dev": "nodemon index.js",
-"test": "echo 'All tests passed' && exit 0"
+"test": "echo 'Intentional test failure' && exit 1"
 },
 "dependencies": {
 "express": "^4.18.2"
