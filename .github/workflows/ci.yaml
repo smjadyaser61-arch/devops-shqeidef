@@ -26,7 +26,7 @@ jobs:
     name: Test
     uses: ./.github/workflows/reusable-test.yaml
     with:
-      node-version: '24'
+      node-version: '22'
   build-and-push:
     name: Build & Push
     runs-on: ubuntu-24.04
